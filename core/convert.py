@@ -1,13 +1,16 @@
 from pathlib import Path
 
 
-def sub(a, b):
+def sub(args):
     root = Path(__file__).resolve().parents[1]
     try:
-        with open(root.joinpath('js', 'payload.js'), 'r') as f:
-            javascript = f.readlines()
+        payload = root.joinpath('js', 'payload.js')
+
+        with open(payload, 'r') as javascript:
+            code = javascript.readlines()
+
         return ''.join(
-            [js.replace('{{ 0 }}', a)
-               .replace('{{ 1 }}', b) for js in javascript])
+            [line.replace('{{ 0 }}', args[0])
+                 .replace('{{ 1 }}', args[1]) for line in code])
     except FileNotFoundError:
         raise
