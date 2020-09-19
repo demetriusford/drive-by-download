@@ -7,12 +7,12 @@ from core.encoder import b64
 from core.convert import sub
 
 CHOICES = (
-    '.doc',  # => Microsoft Word for Windows/Word97
-    '.pdf',  # => Acrobat-Portable document format
-    '.xls',  # => Excel spreadsheet
-    '.docx',  # => Microsoft Word for Windows/Word97
-    '.xlsx',  # => Excel spreadsheet
-    '.xlsm',  # => Excel spreadsheet with macros
+    '.doc', # => Microsoft Word for Windows/Word97
+    '.pdf', # => Acrobat-Portable document format
+    '.xls', # => Excel spreadsheet
+    '.docx', # => Microsoft Word for Windows/Word97
+    '.xlsx', # => Excel spreadsheet
+    '.xlsm', # => Excel spreadsheet with macros
 )
 
 
