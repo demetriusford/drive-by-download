@@ -3,20 +3,20 @@
     length
   }) => length === 0;
 
-  if (!file.length || !payload.length) {
+  if (empty(file) || empty(payload)) {
     return false;
   }
 
+  const decoded = window.atob(payload);
+  const size = payload.length;
   const a = document.createElement('a');
-  const macroDocument = window.atob(payload);
-  const sizeOfPayload = payload.length;
 
-  let bytes = new Uint8Array(sizeOfPayload);
-  for (let i = 0; i < sizeOfPayload; i++) {
-    bytes[i] = macroDocument.charCodeAt(i);
+  const bin = new Uint8Array(size);
+  for (let i = 0; i < size; i++) {
+    bin[i] = decoded.charCodeAt(i);
   }
 
-  const blob = new Blob([bytes.buffer]
+  const blob = new Blob([bin.buffer]
     , {
       type: 'octet/stream'
     });
