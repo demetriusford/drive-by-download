@@ -6,6 +6,8 @@ import random
 from core.encoder import b64
 from core.convert import sub
 
+__author__ = 'Demetrius Ford'
+
 CHOICES = (
     '.doc', # => Microsoft Word for Windows/Word97
     '.pdf', # => Acrobat-Portable document format
