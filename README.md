@@ -1,6 +1,13 @@
 # dbd.py (drive-by-download)
 Generate a post exploit script to download an arbitrary file using HTML5's Blob object (https://developer.mozilla.org/en-US/docs/Web/API/Blob).
 
+# install
+
+```shell
+$ git clone https://github.com/demetrius-ford/dbd.git
+$ cd dbd/ && pip3 install -r requirements.txt
+```
+
 # usage
 
 ```bash
