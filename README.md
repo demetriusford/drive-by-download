@@ -16,7 +16,13 @@ Usage: dbd.py [OPTIONS]
   Generate a drive-by-download XSS payload.
 
 Options:
-  --file-type [doc|pdf|xls|docx|xlsx|xlsm]
+  --suffix [.doc|.pdf|.xls|.docx|.xlsx|.xlsm]
   --payload FILE
-  --help                          Show this message and exit. 
+  --help                          Show this message and exit.
+```
+
+Create a macro-enabled document, then run:
+
+```bash
+$ python3 dbd.py --suffix=".xlsx" --payload="2020_12_12_financials.xlsx"
 ```
