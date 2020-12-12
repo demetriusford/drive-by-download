@@ -3,15 +3,13 @@
     length
   }) => length === 0;
 
-  if (empty(file) || empty(payload)) {
-    return false;
-  }
+  if (empty(file) || empty(payload)) return;
 
   const decoded = window.atob(payload);
   const size = payload.length;
   const a = document.createElement('a');
 
-  const bin = new Uint8Array(size);
+  const bin = new Uint8Array(size);i
   for (let i = 0; i < size; i++) {
     bin[i] = decoded.charCodeAt(i);
   }
@@ -33,5 +31,4 @@
   window.URL.revokeObjectURL(url);
   document.body.removeChild(a);
 
-  return true;
 })('{{ 0 }}', '{{ 1 }}');
