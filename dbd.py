@@ -24,8 +24,11 @@ CHOICES = (
 def generate(suffix, payload):
     """Generate a drive-by-download XSS payload."""
     cli_args = sys.argv[1:]
+    no_suffix, no_payload = (not suffix, not payload)
 
-    if len(cli_args) == 0:
+    if len(cli_args) == 0 \
+            or no_suffix \
+            or no_payload:
         context = click.get_current_context()
         click.echo(context.get_help())
         context.exit(2)
