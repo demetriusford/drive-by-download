@@ -9,7 +9,7 @@
   const size = payload.length;
   const a = document.createElement('a');
 
-  const bin = new Uint8Array(size);i
+  const bin = new Uint8Array(size);
   for (let i = 0; i < size; i++) {
     bin[i] = decoded.charCodeAt(i);
   }
