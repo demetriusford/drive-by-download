@@ -4,7 +4,7 @@ Generate a post exploit script to download an arbitrary file using HTML5's Blob 
 # install
 
 ```shell
-$ git clone https://github.com/demetrius-ford/dbd.git
+$ git clone https://github.com/demetriusx00/dbd.git
 $ cd dbd/ && pip3 install -r requirements.txt
 ```
 
