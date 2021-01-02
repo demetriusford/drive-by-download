@@ -1,5 +1,6 @@
 # dbd.py (drive-by-download)
-Generate a post exploit script to download an arbitrary file using HTML5's Blob object (https://developer.mozilla.org/en-US/docs/Web/API/Blob).
+
+Generate a post exploit script to download an arbitrary file using HTML5's Blob object (https://developer.mozilla.org/en-US/docs/Web/API/Blob). Use this to demonstrate *meaningful* XSS attack vectors instead of ```alert(1)```.
 
 # install
 
