@@ -6,7 +6,8 @@ import random
 from core.encoder import b64
 from core.convert import sub
 
-__author__ = 'Demetrius Ford'
+__author__  = 'Demetrius Ford'
+__version__ = 'v1.0'
 
 CHOICES = (
     '.doc',  #=> Microsoft Word for Windows/Word97
@@ -15,9 +16,23 @@ CHOICES = (
 )
 
 
+def show_version(ctx, param, value):
+    if not value or ctx.resilient_parsing:
+        return
+    click.echo(__version__)
+    ctx.exit(0)
+
+
 @click.command()
-@click.option('--suffix', type=click.Choice(CHOICES, case_sensitive=True))
-@click.option('--payload', type=click.Path(exists=True, dir_okay=False))
+@click.option('--version',
+              is_flag=True,
+              callback=show_version,
+              expose_value=False,
+              is_eager=True)
+@click.option('--suffix',
+              type=click.Choice(CHOICES, case_sensitive=True))
+@click.option('--payload',
+              type=click.Path(exists=True, dir_okay=False))
 def generate(suffix, payload):
     """Generate a drive-by-download XSS payload."""
     cli_args = sys.argv[1:]
