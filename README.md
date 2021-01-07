@@ -17,6 +17,7 @@ Usage: dbd.py [OPTIONS]
   Generate a drive-by-download XSS payload.
 
 Options:
+  --version
   --suffix [.doc|.pdf|.docx]
   --payload FILE
   --help                      Show this message and exit.
