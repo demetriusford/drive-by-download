@@ -4,7 +4,6 @@ class MimeFactory {
       '.doc': 'application/msword'
       , '.pdf': 'application/pdf'
       , '.exe': 'application/octet-stream'
-      , '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
     , }
 
     if (!(type in mimes)) {
