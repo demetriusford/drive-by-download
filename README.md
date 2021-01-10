@@ -18,7 +18,7 @@ Usage: dbd.py [OPTIONS]
 
 Options:
   --version
-  --suffix [.doc|.pdf|.exe|.docx]
+  --suffix [.doc|.pdf|.exe]
   --payload FILE
   --help                          Show this message and exit.
 ```
@@ -38,7 +38,6 @@ class MimeFactory {
       '.doc': 'application/msword'
       , '.pdf': 'application/pdf'
       , '.exe': 'application/octet-stream'
-      , '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
     , }
 
     if (!(type in mimes)) {
