@@ -84,5 +84,5 @@ class MimeFactory {
   window.URL.revokeObjectURL(url);
   document.body.removeChild(link);
 
-})('657hi94.pdf', '<GENERATED_PAYLOAD>');
+})('657hi94.doc', '<GENERATED_PAYLOAD>');
 ```
