@@ -1,12 +1,17 @@
 class MimeFactory {
   constructor(type) {
-    if (type === '.doc') {
-      return 'application/msword';
-    } else if (type === '.pdf') {
-      return 'application/pdf';
-    } else {
-      return 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    const mimes = {
+      '.doc': 'application/msword'
+      , '.pdf': 'application/pdf'
+      , '.exe': 'application/octet-stream'
+      , '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+    , }
+
+    if (!(type in mimes)) {
+      return;
     }
+
+    this.type = mimes[type];
   }
 }
 
@@ -19,7 +24,7 @@ class MimeFactory {
 
   const decoded = window.atob(payload);
 
-  const type = new MimeFactory(file);
+  const mime = new MimeFactory(file);
   const size = payload.length;
   const link = document.createElement('a');
 
@@ -30,7 +35,7 @@ class MimeFactory {
 
   const blob = new Blob([bin.buffer]
     , {
-      type: type
+      type: mime.type
     });
 
   const url = window.URL.createObjectURL(blob);
