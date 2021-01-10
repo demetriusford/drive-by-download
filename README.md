@@ -18,9 +18,9 @@ Usage: dbd.py [OPTIONS]
 
 Options:
   --version
-  --suffix [.doc|.pdf|.docx]
+  --suffix [.doc|.pdf|.exe|.docx]
   --payload FILE
-  --help                      Show this message and exit.
+  --help                          Show this message and exit.
 ```
 
 Create a macro-enabled document, then run:
