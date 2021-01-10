@@ -12,8 +12,7 @@ __version__ = 'v1.0'
 CHOICES = (
     '.doc',  #=> Microsoft Word for Windows/Word97
     '.pdf',  #=> Acrobat-Portable document format
-    '.exe',  #=> Microsoft Portable Executable
-    '.docx', #=> Microsoft Word for Windows/Word97
+    '.exe',  #=> Microsoft Portable Executable (PE)
 )
 
 
