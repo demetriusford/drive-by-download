@@ -29,17 +29,17 @@ def show_version(ctx, param, value):
               callback=show_version,
               expose_value=False,
               is_eager=True)
-@click.option('--suffix',
+@click.option('--extension',
               type=click.Choice(CHOICES, case_sensitive=True))
 @click.option('--payload',
               type=click.Path(exists=True, dir_okay=False))
-def generate(suffix, payload):
+def generate(extension, payload):
     """Generate a drive-by-download XSS payload."""
     cli_args = sys.argv[1:]
-    no_suffix, no_payload = (not suffix, not payload)
+    no_extension, no_payload = (not extension, not payload)
 
     if len(cli_args) == 0 \
-            or no_suffix \
+            or no_extension \
             or no_payload:
         context = click.get_current_context()
         click.echo(context.get_help())
@@ -49,7 +49,7 @@ def generate(suffix, payload):
     filename = ''.join(random.choice(char_set) for _ in range(7))
     embedded = b64(payload)
 
-    click.echo(sub((filename + suffix, embedded)))
+    click.echo(sub((filename + extension, embedded)))
 
 
 if __name__ == '__main__':
