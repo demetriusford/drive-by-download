@@ -18,7 +18,7 @@ Usage: dbd.py [OPTIONS]
 
 Options:
   --version
-  --suffix [.doc|.pdf|.exe]
+  --extension [.doc|.pdf|.exe]
   --payload FILE
   --help                          Show this message and exit.
 ```
@@ -26,7 +26,7 @@ Options:
 Create a macro-enabled document, then run:
 
 ```bash
-$ python3 dbd.py --suffix=".doc" --payload="15122020.doc"
+$ python3 dbd.py --extension=".doc" --payload="my_macro.doc"
 ```
 
 Serve the script with tooling of your choice :smiling_imp:
@@ -83,5 +83,5 @@ class MimeFactory {
   window.URL.revokeObjectURL(url);
   document.body.removeChild(link);
 
-})('657hi94.doc', '<GENERATED_PAYLOAD>');
+})('657hi94.doc', '...');
 ```
