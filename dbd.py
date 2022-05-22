@@ -7,7 +7,7 @@ from core.encoder import b64
 from core.convert import sub
 
 __author__  = 'Demetrius Ford'
-__version__ = 'v1.0'
+__version__ = 'v1.0.3'
 
 CHOICES = (
     '.doc',  #=> Microsoft Word for Windows/Word97
