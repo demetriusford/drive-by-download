@@ -1,0 +1,2 @@
+# Specifies only dev-specific requirements
+autopep8==1.5.4
