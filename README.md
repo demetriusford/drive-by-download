@@ -29,7 +29,7 @@ Create a macro-enabled document, then run:
 $ python3 dbd.py --extension=".doc" --evil-file="evil.doc"
 ```
 
-Serve the script with tooling of your choice :smiling_imp:
+Generated "baddie" script with embedded file :smiling_imp:
 
 ```javascript
 class MimeFactory {
