@@ -31,27 +31,27 @@ def show_version(ctx, param, value):
               is_eager=True)
 @click.option('--extension',
               type=click.Choice(CHOICES, case_sensitive=True))
-@click.option('--save-file',
+@click.option('--evil-file',
               type=click.Path(exists=True, dir_okay=False))
-def generate(extension, save_file):
+def generate(extension, evil_file):
     """Generate a drive-by-download XSS payload."""
     cli_args = sys.argv[1:]
 
-    no_extension, no_save_file = (
+    no_extension, no_evil_file = (
         not extension,
-        not save_file,
+        not evil_file,
     )
 
     if len(cli_args) == 0 \
             or no_extension \
-            or no_save_file:
+            or no_evil_file:
         context = click.get_current_context()
         click.echo(context.get_help())
         context.exit(2)
 
     char_set = string.printable[:36]
     filename = ''.join(random.choice(char_set) for _ in range(7))
-    embedded = b64(save_file)
+    embedded = b64(evil_file)
 
     click.echo(sub((filename + extension, embedded)))
 
