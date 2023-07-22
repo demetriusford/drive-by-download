@@ -5,8 +5,8 @@ Generate a post exploit script to download an arbitrary file using HTML5's Blob 
 # install
 
 ```shell
-$ git clone https://github.com/demetrius-ford/dbd.py
-$ cd dbd.py/ && pip3 install -r requirements/all.txt
+$ git clone https://github.com/demetriusford/drive-by-download
+$ cd drive-by-download && pip3 install -r requirements/all.txt
 ```
 
 # usage
@@ -26,7 +26,8 @@ Options:
 Create a macro-enabled document, then run:
 
 ```bash
-$ python3 dbd.py --extension=".doc" --evil-file="evil.doc"
+$ python3 dbd.py --extension=".doc" \
+                 --evil-file="/path/to/evil.doc"
 ```
 
 Generated "baddie" script with embedded file :smiling_imp:
