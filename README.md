@@ -30,7 +30,7 @@ $ python3 dbd.py --extension=".doc" \
                  --evil-file="/path/to/evil.doc"
 ```
 
-Generated "baddie" script with embedded file :smiling_imp:
+You'll see the generated JavaScript printed to `stdout` with the embedded file contents. Now, you can spend time obfuscating identifier names, string extractions, and code operations to complicate analysis:
 
 ```javascript
 class MimeFactory {
