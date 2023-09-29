@@ -6,9 +6,8 @@ const MIMES = {
 
 class MimeFactory {
   constructor(type) {
-    if (!(type in MIMES)) {
-      return;
-    }
+    if (!(type in MIMES)) return;
+
     this.type = MIMES[type];
   }
 }
@@ -18,9 +17,7 @@ class MimeFactory {
     length
   }) => length === 0;
 
-  if (empty(file) || empty(payload)) {
-    return;
-  }
+if (empty(file) || empty(payload)) return;
 
   const decoded = window.atob(payload);
 
@@ -33,9 +30,10 @@ class MimeFactory {
     bin[i] = decoded.charCodeAt(i);
   }
 
-  const blob = new Blob([bin.buffer], {
-    type: mime.type
-  });
+  const blob = new Blob([bin.buffer]
+    , {
+      type: mime.type
+    });
 
   const url = window.URL.createObjectURL(blob);
 
