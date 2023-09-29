@@ -17,7 +17,7 @@ class MimeFactory {
     length
   }) => length === 0;
 
-if (empty(file) || empty(payload)) return;
+  if (empty(file) || empty(payload)) return;
 
   const decoded = window.atob(payload);
 
