@@ -1,0 +1,10 @@
+# Gem
+/*.gem
+/pkg/
+
+# RSpec
+/coverage/
+/.rspec_status
+
+# Environment
+/.env*

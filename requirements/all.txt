@@ -1,2 +1,0 @@
-# Contains requirements used in all environments
-click==7.1.2
