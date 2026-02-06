@@ -46,8 +46,7 @@ The generated payload includes basic obfuscation:
 
 - String concatenation splits suspicious function names (`'at'+'ob'`, `'Bl'+'ob'`)
 - No easily-greppable signatures exist such as `atob`, `Blob`, `createElement`
-- Single-letter variable names
-- Minified single-line output
+- Single-letter variable names + minified single-line output
 
 ### Increasing Evasion
 
@@ -55,7 +54,7 @@ For stronger evasion, consider these high-impact techniques:
 
 **1. JS Obfuscators**
 
-Defeats static analysis. Tools like `javascript-obfuscator` mangle control flow, encode strings, and add dead code:
+Defeats static analysis. Tools like [`javascript-obfuscator`](https://github.com/javascript-obfuscator/javascript-obfuscator) mangle control flow, encode strings, and add dead code:
 
 ```bash
 $ ./bin/dbd -f payload.exe | javascript-obfuscator --compact true --string-array true
@@ -84,6 +83,14 @@ Defeats signature-based detection by producing a unique payload on every generat
 **Why signatures fail:** Security tools that rely on pattern matching look for known byte sequences or AST structures. When every payload is structurally unique, no single signature matches. Analysts must reverse-engineer each sample individually rather than relying on automated classification.
 
 **Implementation:** Modify the ERB template to use Ruby's `SecureRandom` for generating identifiers at render time. Alternatively, post-process the output with a polymorphic engine that rewrites the AST while preserving semantics.
+
+Each render produces unique output:
+```javascript
+// Run 1
+((qmxvhtkj)=>{const wlpfbcry=window,ansdxqzm=document;...
+// Run 2
+((bcnqwxlp)=>{const fhjrtyvz=window,kmoqsuwx=document;...
+```
 
 ## Browser Support
 
